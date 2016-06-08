@@ -32,7 +32,13 @@ var displayMap = function(country) {
     var map = new Map(center, 4);
     var marker = map.addMarker(center, country.name);
     marker.label = country.name[0];
-    var infoWindow = map.addInfoWindow(center, country.name);
+    var infoWindow = map.addInfoWindow(center, country.name, infoWindowContent(country));
+    // infoWindow.content = 'hello';
+}
+
+var infoWindowContent = function(country) {
+    contentString = '<h3>' + country.name + '</h3>' + '<h4>' + 'Population:' + '</h4>' + '<p>' + country.population + '</p>' + '<h4>' + 'Capital:' + '</h4>' + '<p>' + country.capital + '</p>';
+    return contentString;
 }
 
 

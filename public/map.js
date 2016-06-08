@@ -5,14 +5,14 @@ var Map = function(latLng, zoom) {  //our map constructor
     zoom: zoom
   });
 
-  this.addInfoWindow = function(latLng, title) {
+  this.addInfoWindow = function(latLng, title, content) {
     var marker = this.addMarker(latLng, title);
     marker.addListener('click', function() {
-      var contentString = '<h1>THANK YOU FOR CLICKING ON THE MARKER I REALLY AM MOST GRATEFUL CHEERS</h1>';
       var infowindow = new google.maps.InfoWindow({
-          content: contentString
+          content: content
         });
-      infowindow.open(this.map, this); //we can use this.map because addMarker has a map
+      infowindow.open(this.map, this); 
+      return infowindow;
     })
   };
 
