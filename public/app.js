@@ -27,12 +27,11 @@ var main = function (countries) {
 }
 
 var displayMap = function(country) {
-    var mapDiv = document.getElementById('map');
-    var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: country.latlng[0], lng: country.latlng[1]},
-    zoom: 4
-  });
+    var center = {lat: country.latlng[0], lng: country.latlng[1]};
+    var map = new Map(center, 4);
+    map.addMarker()
 }
+
 
 var populateSelect = function (countries) {
     var parent = document.querySelector('#countries');
