@@ -19,6 +19,7 @@ var Map = function(latLng, zoom) {  //our map constructor
   this.addMarker = function(latLng, title) {
     var marker = new google.maps.Marker({
       position: latLng,
+      label: '',
       map: this.googleMap,
       title: title //need to call key 'title' so google maps can use the property. we could have a label key as well as a title key if we wanted
     })

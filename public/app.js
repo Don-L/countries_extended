@@ -1,4 +1,5 @@
 window.onload = function () {
+    console.log('Got the data!')
     var url = 'https://restcountries.eu/rest/v1'
     var request = new XMLHttpRequest();
     request.open("GET", url);
@@ -29,7 +30,9 @@ var main = function (countries) {
 var displayMap = function(country) {
     var center = {lat: country.latlng[0], lng: country.latlng[1]};
     var map = new Map(center, 4);
-    map.addMarker()
+    var marker = map.addMarker(center, country.name);
+    marker.label = country.name[0];
+    var infoWindow = map.addInfoWindow(center, country.name);
 }
 
 
