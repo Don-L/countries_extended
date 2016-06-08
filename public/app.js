@@ -29,11 +29,17 @@ var main = function (countries) {
 
 var displayMap = function(country) {
     var center = {lat: country.latlng[0], lng: country.latlng[1]};
-    var map = new Map(center, 4);
+    var map = new Map(center, getZoom(country));
     var marker = map.addMarker(center, country.name);
     marker.label = country.name[0];
     var infoWindow = map.addInfoWindow(center, country.name, infoWindowContent(country));
-    // infoWindow.content = 'hello';
+}
+
+var getZoom = function(country) {
+    if (country.area >= 1564110) {
+        return 4;
+    }
+    else {return 6};
 }
 
 var infoWindowContent = function(country) {
